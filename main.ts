@@ -1005,7 +1005,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.statue, function (sprite, otherS
     game.showLongText("What the heck is this? A statue in the middle of the forest?", DialogLayout.Bottom)
     game.showLongText("This is weird.. but it must mean I'm getting close to something!", DialogLayout.Bottom)
     game.showLongText("Especially since I showed up in this spooky forest...", DialogLayout.Bottom)
-    game.showLongText("I'm so excited!", DialogLayout.Bottom)
+    game.showLongText("I'm excited, but nervous at the same time...", DialogLayout.Bottom)
     sprites.destroyAllSpritesOfKind(SpriteKind.statue)
     mySprite.sayText("!!!", 1000, false)
     scene.cameraShake(4, 500)
