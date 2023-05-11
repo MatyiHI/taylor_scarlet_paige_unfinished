@@ -10,6 +10,7 @@ namespace SpriteKind {
     export const teleporter5 = SpriteKind.create()
     export const house = SpriteKind.create()
     export const npc = SpriteKind.create()
+    export const npc1kneeling = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSprite) {
     game.showLongText("?: Ah!!!! Thereʻs actually someone in this town again??", DialogLayout.Bottom)
@@ -32,7 +33,50 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSpri
         game.showLongText("?: Many have tried to break it, but...", DialogLayout.Bottom)
         game.showLongText("Marin: But what?", DialogLayout.Bottom)
         game.showLongText("?: The witch is too powerful. She needs to be killed in order to bring our world back.", DialogLayout.Bottom)
+        game.showLongText("Marin: Well, if she needs to die, why canʻt I just beat her?", DialogLayout.Bottom)
+        game.showLongText("?: Ahaha... AHAHAHAHAHA", DialogLayout.Bottom)
+        game.showLongText("Marin: ...", DialogLayout.Bottom)
+        game.showLongText("?: Ahaha... I havenʻt laughed like that in a while.", DialogLayout.Bottom)
+        game.showLongText("?: Surely youʻre joking, right?", DialogLayout.Bottom)
+        game.showLongText("Marin: ...", DialogLayout.Bottom)
+        game.showLongText("?: Thereʻs no way you can beat the witch. Youʻd have to be the chosen one.", DialogLayout.Bottom)
+        game.showLongText("Marin: Chosen one?", DialogLayout.Bottom)
+        game.showLongText("?: Oh, did I not tell you?", DialogLayout.Bottom)
+        game.showLongText("?: The chosen one is going to be our savior.", DialogLayout.Bottom)
+        game.showLongText("?: They appeared in a prophecy many many years ago.", DialogLayout.Bottom)
+        game.showLongText("Marin: Prophecy?", DialogLayout.Bottom)
+        game.showLongText("?: The mermaids foresaw it. They saw that the chosen one would kill the witch.", DialogLayout.Bottom)
+        game.showLongText("?: But the chosen one hasnʻt appeared yet...", DialogLayout.Bottom)
+        game.showLongText("?: Thatʻs why many tried to kill the witch. Alas, they failed...", DialogLayout.Bottom)
+        game.showLongText("Marin: I see... well, what if I was the chosen one.", DialogLayout.Bottom)
+        game.showLongText("?: Thatʻs... possible. If so, youʻd have to- COUGH...", DialogLayout.Bottom)
+        game.showLongText("Marin: Are you okay?", DialogLayout.Bottom)
+        game.showLongText("?: I am very sick. My health is deteriorating. Quick, cough...", DialogLayout.Bottom)
+        game.showLongText("?: Go to the mermaid cove outside town. Theyʻll tell you everything.", DialogLayout.Bottom)
+        game.showLongText("?: Ask them about the prophecy- COUGH, COUGH...", DialogLayout.Bottom)
+        game.showLongText("?: For the sake of our world... please...", DialogLayout.Bottom)
+        game.showLongText("Marin: I got it.", DialogLayout.Bottom)
     }
+    sprites.destroy(mySprite14)
+    mySprite13 = sprites.create(img`
+        . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . 
+        . f f f . f f f f . f f f . 
+        f f f f f c c c c f f f f f 
+        f f f f b c c c c b f f f f 
+        f f f c 3 c c c c 3 c f f f 
+        . f c c c c 4 4 c c c c f . 
+        . f f c c 4 4 4 4 c c f f . 
+        . f f f 4 4 4 4 4 4 f f f . 
+        . f f 4 f f d d f f 4 f f . 
+        . . e f e 4 4 4 4 e f e . . 
+        . e 4 f b 3 3 3 3 b f 4 e . 
+        . 4 d f 3 3 3 3 3 3 c d 4 . 
+        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
+        . . . f f f f f f f f . . . 
+        `, SpriteKind.npc1kneeling)
+    mySprite13.setPosition(75, 67)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
@@ -241,6 +285,8 @@ statusbars.onZero(StatusBarKind.Health, function (status) {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter5, function (sprite, otherSprite) {
     sprites.destroy(mySprite12)
+    music.stopAllSounds()
+    music.play(music.createSong(hex`005a000408090600001c00010a006400f4016400000400000000000000000000000000050000047a0100000400010c04000800011208000c00010f0c001000011210001400010c14001800011218001c00010f1c002000011220002400010c24002800011428002c0001112c003000011430003400010d34003800011438003c0001113c004000011440004400010c44004800011248004c00010f4c005000011250005400010c54005800011258005c00010f5c006000011260006400010c64006800011468006c0001116c007000011470007400010d74007800011478007c0001117c008000011480008400010d84008800011488008c0001148c009000010d90009400011494009800011498009c00010d9c00a0000116a000a4000116a400a800010da800ac000114ac00b0000114b000b400010db400b8000114b800bc000114bc00c000010dc000c4000116c400c8000116c800cc00010dcc00d0000114d000d4000114d400d800010dd800dc000116dc00e0000116e000e400010de400e8000114e800ec000114ec00f000010df800fc00010dfc000001011600010401011601001c000f05001202c102c20100040500280000006400280003140006020004bc0010001c0001201c002000012220002c00012430003400012734003800012538003c0001243c004000012240004c000120500054000320242754005800031e222558005c00031d20245c00680001228800940001259400980001249800a0000122a400a8000122a800ac000129ac00b0000129b000b4000127b400c0000125c000c4000124cc00d000022427d000d4000125d400e0000125e000e4000127e400e8000120ec00f0000124f000f400022427f4000001012500010401012404001c00100500640000041e000004000000000000000000000000000a040004120000010401012004010801012008010c01012005001c000f0a006400f4010a00000400000000000000000000000000000000020c00f000f80001270c011801012006001c00010a006400f401640000040000000000000000000000000000000002540000000400011d08000c00011d10001400011d18001c00011d20002400011d28002c00011d30003400011d38003c00011d40004400011d58005c00011d60006400011d68006c00011d70007400011d78007c00011d07001c00020a006400f401640000040000000000000000000000000000000003600080008400011d88008c00011d90009400011d98009c00011da000a400011da800ac00011db000b400011db800bc00011dc000c400011dc800cc00011dd000d400011dd800dc00011de000e400011de800ec00011df000f400011df800fc00011d`), music.PlaybackMode.LoopingInBackground)
     scene.setBackgroundImage(img`
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
@@ -364,57 +410,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter5, function (sprite, o
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
     mySprite.setPosition(3, 67)
-    mySprite13 = sprites.create(img`
-        ....................8a8aa8a8....................
-        .................aaa888aa8a8aaa.................
-        ..............aaa8aa8a8aa888aa8aaa..............
-        ...........8aa8aa8888a8aa8a8888aa8aa8...........
-        ........8888aa8aa8aa8a8aa8a8aa8aa8aa8888........
-        .....aaa8aa8aa8888aa8a8aa8a8aa8888aa8aa8aaa.....
-        ...aa8888aa8aa8aa8aa888aa888aa8aa8aa8aa8888aa...
-        dccaa8aa8aa8888aa8aa8a8aa8a8aa8aa8888aa8aa8aaccd
-        bcb888aa8aa8aa8aa8aa8a8aa8a8aa8aa8aa8aa8aa888bcb
-        dbbaa8aa8888aa8aa8888a8aa8a8888aa8aa8888aa8aabbd
-        dbbaa8aa8aa8aa8888aa8a8aa8a8aa8888aa8aa8aa8aabbd
-        dccaa8888aa8aa8aa8aa888aa888aa8aa8aa8aa8888aaccd
-        bcbaa8aa8aa8888aa8aa8a8aa8a8aa8aa8888aa8aa8aabcb
-        dbb888aa8aa8aa8aa8aa8a8aa8a8aa8aa8aa8aa8aa888bbd
-        dbbaa8aa8888aa8aa8aa8a8aa8a8aa8aa8aa8888aa8aabbd
-        dccaa8aa8aa8aa8aa8888a8aa8a8888aa8aa8aa8aa8aaccd
-        bcbaa8888aa8aa8888aa888aa888aa8888aa8aa8888aabcb
-        dbbaa8aa8aa8888aa8aa8a8aa8a8aa8aa8888aa8aa8aabbd
-        dbb888aa8aa8aa8aa8aa8a8aa8a8aa8aa8aa8aa8aa888bbd
-        dccaa8aa8888aa8aa8aa8a8aa8a8aa8aa8aa8888aa8aaccd
-        bcbaa8aa8aa8aa8aa8aa888aa888aa8aa8aa8aa8aa8aabcb
-        dbbaa8888aa8aa8aa888ccbbbbcc888aa8aa8aa8888aabbd
-        dbbaa8aa8aa8aa888ccbbbbbbbbbbcc888aa8aa8aa8aabbd
-        dcc888aa8aa888ccbbbbbccccccbbbbbcc888aa8aa888ccd
-        bcbaa8aa888ccbbbbbccbddddddbccbbbbbcc888aa8aabcb
-        dbbaa8aaccbbbbbccbddddddddddddbccbbbbbccaa8aabbd
-        dbbaaccbbbbcccbddddddddddddddddddbcccbbbbccaabbd
-        dcccbbbbcccbdddbccbbbbbbbbbbbbccbdddbcccbbbbcccd
-        ccccccccbbbbbbbcbddddddddddddddbcbbbbbbbcccccccc
-        bddddddddddddbcddddddddddddddddddcbddddddddddddb
-        bbcbdddddddddcbd1111111111111111dbcdddddddddbcbb
-        bbbcccccccccccd1bbbbbbbbbbbbbbbb1dcccccccccccbbb
-        bbbbdddddddddc11beeeeeeeeeeeeeeb11cdddddddddbbbb
-        bbb8aaaaaaa8dc1be3b33b33b33b33beb1cd8aaaaaaa8bbb
-        bbb888888888dc1be3b33b33b33b33beb1cd888888888bbb
-        bbb833333338dcbbf3b3effffffe33bebbcd833333338bbb
-        bbb83ff3ff38dcbbf3bffffffffff3bebbcd83ff3ff38bbb
-        bbb83cc3cc38dcbbf3effffffffffebebbcd83cc3cc38bbb
-        bbb833333338dcbbf3eeeeeeeeeeeebebbcd833333338bbb
-        bbb83ff3ff38dcbbe3b33b33b33b33bebbcd83ff3ff38bbb
-        bbb83cc3cc38dcbbe3b33b33b33b33bebbcd83cc3cc38bbb
-        bbbbbbbbbbbbdcbbe3b33b33b33feeeebbcdbbbbbbbbbbbb
-        bbbbdddddddddcbbe3b33b33b33ffffebbcdddddddddbbbb
-        bbbbdbbbdbbbdcbbf3b33b33b33f33febbcdbbbdbbbdbbbb
-        bbbbdbbbdbbbdcbbf3b33b33b33bffeebbcdbbbdbbbdbbbb
-        bbbbdddddddddcbbf3b33b33b33b33bebbcddddddddbbbbb
-        cbbbbddbbbdddcbbf3b33b33b33b33bebbcdddbbbdbbbbbc
-        ccbbbbbcccbbbcbbe3b33b33b33b33bebbcbbbcccbbbbbcc
-        `, SpriteKind.house)
-    mySprite13.setPosition(108, 53)
     mySprite14 = sprites.create(img`
         . f f f . f f f f . f f f . 
         f f f f f c c c c f f f f f 
@@ -1313,11 +1308,11 @@ let mySprite4: Sprite = null
 let mySprite10: Sprite = null
 let mySprite5: Sprite = null
 let mySprite6: Sprite = null
-let mySprite14: Sprite = null
-let mySprite13: Sprite = null
 let mySprite12: Sprite = null
 let mySprite9: Sprite = null
 let projectile: Sprite = null
+let mySprite13: Sprite = null
+let mySprite14: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
