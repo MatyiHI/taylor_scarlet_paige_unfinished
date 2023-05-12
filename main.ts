@@ -457,7 +457,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(mySprite)
     animation.runImageAnimation(
     mySprite,
-    assets.animation`myAnim4`,
+    assets.animation`marin_right_anim`,
     100,
     true
     )
