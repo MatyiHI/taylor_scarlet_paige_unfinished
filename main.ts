@@ -341,7 +341,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter5, function (sprite, o
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
-    mySprite.setPosition(3, 67)
+    mySprite.setPosition(3, 65)
     mySprite14 = sprites.create(img`
         . f f f . f f f f . f f f . 
         f f f f f c c c c f f f f f 
@@ -461,53 +461,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     100,
     true
     )
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter2, function (sprite, otherSprite) {
-    mySprite3 = sprites.create(img`
-        ........................
-        ...........ff..........8
-        ..........f88f........86
-        .........ff88ff......886
-        .........f8888f......866
-        ........f888888f....8666
-        ......ff88888888ff886666
-        .....f888888888888666666
-        .....ff88888888888866666
-        .....f888888888888666666
-        ....f88ff88888ff86688666
-        ....ffff88fff88f88886688
-        .....f8f8ff8ff8f88686886
-        ....f88fff88ffff86688866
-        ....f8ffff8fffff86888868
-        ....fff88ffffff888866888
-        ....f888ffff8fff86668888
-        ...f888ff8f88f8866688686
-        ..f8888888888f8666666666
-        .f88f8888888886686666666
-        .fff88888888888866666666
-        .ff888888888888666666666
-        ..ff88f888f88f8866866686
-        ..f8ff88fff88f8688668886
-        .f88ff8ff8f8f86688688686
-        f88ff8ff88ff866886886688
-        ffff88f88fff888866866888
-        .ffffffffffff88888888888
-        .ff888ff88ff888666886688
-        .f888ff888ff886668866688
-        f888888888f8866666666686
-        fff888f88888888666866666
-        ..ffff88f888888888668666
-        .....f8ff88f888ff8688668
-        ......fff8fff88fff888688
-        .........ffeeff......88e
-        .........feeeef......fee
-        .........feeeef......fee
-        ........feeefeef....feee
-        ........fefeffef....fefe
-        `, SpriteKind.teleporter)
-    mySprite3.setPosition(152, 73)
-    mySprite.setPosition(128, 84)
-    sprites.destroy(mySprite6)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.coin, function (sprite, otherSprite) {
     sprites.destroy(mySprite5)
@@ -636,8 +589,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter3, function (sprite, o
         `, SpriteKind.teleporter4)
     mySprite10.setPosition(152, 71)
     sprites.destroy(mySprite6)
-    sprites.destroy(mySprite4)
-    mySprite.setPosition(0, 84)
+    mySprite.setPosition(0, 70)
     scene.cameraShake(4, 10000)
     mySprite.sayText("WHAT'S HAPPENING?!", 5000, false)
     music.stopAllSounds()
@@ -861,51 +813,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter3, function (sprite, o
     mySprite8.follow(mySprite)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter, function (sprite, otherSprite) {
-    mySprite.setPosition(18, 84)
+    mySprite.setPosition(17, 70)
     sprites.destroy(mySprite3)
-    mySprite4 = sprites.create(img`
-        ........................
-        8..........ff...........
-        68........f88f..........
-        688......ff88ff.........
-        668......f8888f.........
-        6668....f888888f........
-        666688ff88888888ff......
-        666666888888888888f.....
-        66666888888888888ff.....
-        666666888888888888f.....
-        66888668f88888fff88f....
-        8668688888fff88f8fff....
-        8868668f8ff8ff8f88f.....
-        8888868fff88fffff8f.....
-        88888888ff8fffffffff....
-        888668888ffffff88fff....
-        68886668ffff8fff888f....
-        6868866688f88f8ff888f...
-        6866666688888f888888f...
-        666666666888888888888f..
-        66666666868888888888f8f.
-        666666666888888888888ff.
-        6866668666888f8888f888f.
-        6886866886688ff8f88ff88f
-        866888688888f88fff8fffff
-        8866888868ffff88ffff8f..
-        88868688668ffff8f8ff88f.
-        88888668868ffffff88ff8f.
-        68868868688f8ff8ff8f8ff.
-        66866666668888f8888888ff
-        66666666666888888888888f
-        66666866688888888f888ff.
-        666666888888888888ffff..
-        6668868ff88f888ff8f.....
-        8668888ff8fff88ffff.....
-        e88......ffeeff.........
-        eef......feeeef.........
-        eef......feeeef.........
-        feef....feeefeef........
-        ffef....fefeffef........
-        `, SpriteKind.teleporter2)
-    mySprite4.setPosition(0, 73)
     mySprite.sayText("?", 500, false)
     mySprite5 = sprites.create(img`
         . . b b b b . . 
@@ -1168,10 +1077,9 @@ let mySprite11: Sprite = null
 let mySprite8: Sprite = null
 let statusbar: StatusBarSprite = null
 let mySprite7: Sprite = null
-let mySprite4: Sprite = null
 let mySprite10: Sprite = null
-let mySprite5: Sprite = null
 let mySprite6: Sprite = null
+let mySprite5: Sprite = null
 let mySprite12: Sprite = null
 let mySprite9: Sprite = null
 let projectile: Sprite = null
