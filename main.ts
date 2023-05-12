@@ -176,7 +176,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(mySprite)
     animation.runImageAnimation(
     mySprite,
-    assets.animation`left walking`,
+    assets.animation`marin_left_anim`,
     100,
     true
     )
@@ -457,7 +457,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(mySprite)
     animation.runImageAnimation(
     mySprite,
-    assets.animation`myAnim2`,
+    assets.animation`marin_right_anim`,
     100,
     true
     )
