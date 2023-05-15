@@ -75,7 +75,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSpri
         . 4 d f 3 3 3 3 3 3 c d 4 . 
         . 4 4 f 6 6 6 6 6 6 f 4 4 . 
         . . . f f f f f f f f . . . 
-        `, SpriteKind.npc1kneeling)
+        `, SpriteKind.npc)
     mySprite13.setPosition(75, 67)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
