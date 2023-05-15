@@ -58,24 +58,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSpri
         game.showLongText("Marin: I got it.", DialogLayout.Bottom)
     }
     sprites.destroy(mySprite14)
-    mySprite13 = sprites.create(img`
-        . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . 
-        . f f f . f f f f . f f f . 
-        f f f f f c c c c f f f f f 
-        f f f f b c c c c b f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c 4 4 4 4 c c f f . 
-        . f f f 4 4 4 4 4 4 f f f . 
-        . f f 4 f f d d f f 4 f f . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . f f f f f f f f . . . 
-        `, SpriteKind.npc1kneeling)
+    mySprite13 = sprites.create(assets.image`npc_1_hurt`, SpriteKind.npc1kneeling)
     mySprite13.setPosition(75, 67)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -342,114 +325,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter5, function (sprite, o
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
     mySprite.setPosition(3, 52)
-    mySprite14 = sprites.create(img`
-        . f f f . f f f f . f f f . 
-        f f f f f c c c c f f f f f 
-        f f f f b c c c c b f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c 4 4 4 4 c c f f . 
-        . f f f b f 4 4 f b f f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `, SpriteKind.npc)
+    mySprite14 = sprites.create(assets.image`npc_1`, SpriteKind.npc)
     mySprite14.setPosition(75, 67)
     animation.runImageAnimation(
     mySprite14,
-    [img`
-        . f f f . f f f f . f f f . 
-        f f f f f c c c c f f f f f 
-        f f f f b c c c c b f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c 4 4 4 4 c c f f . 
-        . f f f b f 4 4 f b f f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . f f f f . f f f . 
-        f f f f f c c c c f f f f f 
-        f f f f b c c c c b f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c 4 4 4 4 c c f f . 
-        . f f f b f 4 4 f b f f f . 
-        . f f 4 d d d d d d 4 f f . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . f f f . f f f f . f f f . 
-        f f f f f c c c c f f f f f 
-        f f f f b c c c c b f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c 4 4 4 4 c c f f . 
-        . f f f b f 4 4 f b f f f . 
-        . f f 4 1 f d d f 1 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . . . . . . . . . . . . . . 
-        . f f f . f f f f . f f f . 
-        f f f f f c c c c f f f f f 
-        f f f f b c c c c b f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c 4 4 4 4 c c f f . 
-        . f f f f f 4 4 f f f f f . 
-        . f f 4 d d d d d d 4 f f . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `,img`
-        . f f f . f f f f . f f f . 
-        f f f f f c c c c f f f f f 
-        f f f f b c c c c b f f f f 
-        f f f c 3 c c c c 3 c f f f 
-        . f 3 3 c c c c c c 3 3 f . 
-        . f c c c c 4 4 c c c c f . 
-        . f f c c 4 4 4 4 c c f f . 
-        . f f f 4 4 4 4 4 4 f f f . 
-        . f f 4 f f d d f f 4 f f . 
-        . . f f d d d d d d f f . . 
-        . . e f e 4 4 4 4 e f e . . 
-        . e 4 f b 3 3 3 3 b f 4 e . 
-        . 4 d f 3 3 3 3 3 3 c d 4 . 
-        . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-        . . . . f f f f f f . . . . 
-        . . . . f f . . f f . . . . 
-        `],
-    500,
+    assets.animation`npc_1_anim`,
+    450,
     true
     )
 })
