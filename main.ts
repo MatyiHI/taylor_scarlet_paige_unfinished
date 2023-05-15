@@ -59,7 +59,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSpri
     }
     sprites.destroy(mySprite14)
     mySprite13 = sprites.create(assets.image`npc_1_hurt`, SpriteKind.npc1kneeling)
-    mySprite13.setPosition(75, 67)
+    mySprite13.setPosition(75, 57)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
@@ -326,7 +326,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter5, function (sprite, o
         `)
     mySprite.setPosition(3, 52)
     mySprite14 = sprites.create(assets.image`npc_1`, SpriteKind.npc)
-    mySprite14.setPosition(75, 67)
+    mySprite14.setPosition(75, 61)
     animation.runImageAnimation(
     mySprite14,
     assets.animation`npc_1_anim`,
