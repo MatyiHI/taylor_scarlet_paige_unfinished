@@ -11,6 +11,9 @@ namespace SpriteKind {
     export const house = SpriteKind.create()
     export const npc = SpriteKind.create()
     export const npc1kneeling = SpriteKind.create()
+    export const teleporter6 = SpriteKind.create()
+    export const statuedecoration = SpriteKind.create()
+    export const mysteriousobject = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSprite) {
     game.showLongText("?: Ah!!!! Thereʻs actually someone in this town again??", DialogLayout.Bottom)
@@ -22,6 +25,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSpri
         game.showLongText("?: You donʻt know...?", DialogLayout.Bottom)
         game.showLongText("?: Ummm... well... I donʻt know if I can help you then.", DialogLayout.Bottom)
         game.splash("Why did you lie?")
+        sprites.destroy(mySprite)
+        sprites.destroy(mySprite14)
+        sprites.destroy(mySprite4)
+        scene.setBackgroundColor(15)
+        game.showLongText("After lying to the girl, she disappeared.", DialogLayout.Bottom)
+        game.showLongText("You ended up wandering and wandering and wandering...", DialogLayout.Bottom)
+        game.showLongText("And eventually, you died.", DialogLayout.Bottom)
+        game.showLongText("Could things have changed if you told the truth?", DialogLayout.Bottom)
+        game.splash("I guess youʻll never know.")
         game.gameOver(false)
     } else {
         game.showLongText("?: You want to find out more? About what?", DialogLayout.Bottom)
@@ -155,6 +167,212 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     false
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.mysteriousobject, function (sprite, otherSprite) {
+	
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter6, function (sprite, otherSprite) {
+    mySprite.setPosition(3, 52)
+    sprites.destroy(mySprite13)
+    sprites.destroy(mySprite4)
+    mySprite15 = sprites.create(img`
+        ................................................................
+        ................................................................
+        ............................dddddd..............................
+        ..........................ddbbbbbb..............................
+        ..........................ddbbbbbb..............................
+        ..........................ddbbbbbb..............................
+        ..........................ddbddddd..............................
+        ..........................bbdddddd..............................
+        ..........................bbdddddd..............................
+        ..........................bbdddddd..............................
+        ..........................bbcdddbbdd............................
+        ..........................ccbcccbbddd...........................
+        ..........................ccbcccbbddd...........................
+        ..........................ccbcccbbddd...........................
+        ..........................bbdbbbddbbd...........................
+        ..........................bbdbbbddbbd...........................
+        .........................cbbdbbbddccd...........................
+        .........................cbbdbbbddccd...........................
+        .........................cbbbbbbddddb...........................
+        .........................cbbbbbbddddb...........................
+        .........................cffbdddbbddd...........................
+        .........................cffbdddbbddd...........................
+        ......................bbbcffbdddddbbd...........................
+        ......................bbbcffbdddddbbd...........................
+        ......................bbbcffdddddddd............................
+        ......................bbbcffdddddddd............................
+        ......................bbbfbbdddddddd............................
+        ....................bbbbbfddddddddddb...........................
+        ....................bbbbbfddddddddddb...........................
+        ....................bbbbbfddddddddddb...........................
+        ....................ddcccbddddddddddd...........................
+        .........................bddddddddddd...........................
+        .........................bddddddddddd...........................
+        .........................bddddddddddd...........................
+        .........................bddddddddddd...........................
+        .........................bdddbbbddddd...........................
+        .........................bdddbbbdddddbb.........................
+        .........................bdddbbbdddddbb.........................
+        .........................bdddbbbdddddbb.........................
+        ................cccccccccbdddbbbdddddddccccc....................
+        .............cccddddddbbbbddbbbbdddddddbbbddc...................
+        .............cccddddddbbbbddbbbbdddddddbbbddc...................
+        .............cccddddddbbbbddbbbbdddddddbbbddc...................
+        .............bbbddddbbdddbddbbbbddddbddbbbddb...................
+        .............bbbddddbbddddddbbbbddddbbbbbbddb...................
+        .............bbbddddbbddddddbbbbddddbbbbbbddb...................
+        .............bbbddddddbbbdddbbbbddddbbbdddddb...................
+        .............bbbddddddbbbdddbbbbddddbbbdddddb...................
+        .............bbbdddddddddbbbbbbbbbbbbbbdddddb...................
+        .............bbbdddddddddbbbbbbbbbbbbbbdddddb...................
+        .............bbbdddddddddbbbbbbbbbbbbbbdddddb...................
+        .............bbbddddddddddbbbbbbbbbbddddddddb...................
+        .............bbbddddddddddbbbbbbbbbbddddddddb...................
+        .............cccddddddddddddddddddddddddddddc...................
+        .............cccddddddddddddddddddddddddddddc...................
+        .............bbbccccdddddddddddddddddddcccccb...................
+        .............dddbbbbbbbbbbbbbbbbbbbbbbbbbbbbd...................
+        .............dddbbbbbbbbbbbbbbbbbbbbbbbbbbbbd...................
+        .............dddbbbbbbbbbbbbbbbbbbbbbbbbbbbbd...................
+        .............dddbbbbbbbbbcccccccccccbbbbbbbbd...................
+        .............cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbc...................
+        .............cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbc...................
+        .............cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbc...................
+        .............fffccccccccccccccccccccccccccccf...................
+        `, SpriteKind.statuedecoration)
+    mySprite15.setPosition(147, 44)
+    mySprite16 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . c c c . . . . . . 
+        . . . . . . a b a a . . . . . . 
+        . . . . . c b a f c a c . . . . 
+        . . . . c b b b f f a c c . . . 
+        . . . . b b f a b b a a c . . . 
+        . . . . c b f f b a f c a . . . 
+        . . . . . c a a c b b a . . . . 
+        . . . . . . c c c c . . . . . . 
+        . . . . . . . c . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.mysteriousobject)
+    animation.runImageAnimation(
+    mySprite16,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . c c c . . . . . . 
+        . . . . . . a b a a . . . . . . 
+        . . . . . c b a f c a c . . . . 
+        . . . . c b b b f f a c c . . . 
+        . . . . b b f a b b a a c . . . 
+        . . . . c b f f b a f c a . . . 
+        . . . . . c a a c b b a . . . . 
+        . . . . . . c c c c . . . . . . 
+        . . . . . . . c . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . c c . . . . . . 
+        . . . . . c a a a a . . . . . . 
+        . . . . . a a f f b a . . . . . 
+        . . . . c a b f f c b . . . . . 
+        . . . . c b b b a f c b . . . . 
+        . . . . c b a c a b b b . . . . 
+        . . . . . b b f f a a c . . . . 
+        . . . . . . a a b b c . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . c c . . . . . . . 
+        . . . . c a a a a . . . . . . . 
+        . . . . a a f f b a . . . . . . 
+        . . . c a b f f c b . . . . . . 
+        . . . c b b b a f c b . . . . . 
+        . . . c b a c a b b b . . . . . 
+        . . . . b b f f a a c . . . . . 
+        . . . . . a a b b c . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . c . . . . . . . . 
+        . . . . c a a a c . . . . . . . 
+        . . . c c f a b b c . . . . . . 
+        . . . b f f b f a a . . . . . . 
+        . . . b b a b f f a . . . . . . 
+        . . . c b f b b a c . . . . . . 
+        . . . . b a f c c . . . . . . . 
+        . . . . . b b c . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . c b a c . . . . . . 
+        . . . . c c b c f a c . . . . . 
+        . . . . a f b b b a c . . . . . 
+        . . . . a f f b a f c c . . . . 
+        . . . . c b b a f f c . . . . . 
+        . . . . . b b a f a . . . . . . 
+        . . . . . . c b b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . c c . . . . . . . . 
+        . . . . c a f b c . . . . . . . 
+        . . . . b f f b c c . . . . . . 
+        . . . a a f b a b a c . . . . . 
+        . . . c a c b b f f b . . . . . 
+        . . . . b f f b f a b . . . . . 
+        . . . . a f f b b b a . . . . . 
+        . . . . . a b b c c . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    150,
+    true
+    )
+    mySprite16.setPosition(112, 52)
+    game.showLongText("Is that another statue?! And what is that thing...?", DialogLayout.Bottom)
+    game.showLongText("I donʻt see any more houses around... or people.", DialogLayout.Bottom)
+    game.showLongText("This is starting to get weird.", DialogLayout.Bottom)
+    game.showLongText("It feels... like a trap, somehow.", DialogLayout.Bottom)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(mySprite)
     animation.runImageAnimation(
@@ -202,6 +420,49 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.teleporter5, function (sprite, o
     sprites.destroy(mySprite12)
     music.stopAllSounds()
     music.play(music.createSong(hex`005a000408090600001c00010a006400f4016400000400000000000000000000000000050000047a0100000400010c04000800011208000c00010f0c001000011210001400010c14001800011218001c00010f1c002000011220002400010c24002800011428002c0001112c003000011430003400010d34003800011438003c0001113c004000011440004400010c44004800011248004c00010f4c005000011250005400010c54005800011258005c00010f5c006000011260006400010c64006800011468006c0001116c007000011470007400010d74007800011478007c0001117c008000011480008400010d84008800011488008c0001148c009000010d90009400011494009800011498009c00010d9c00a0000116a000a4000116a400a800010da800ac000114ac00b0000114b000b400010db400b8000114b800bc000114bc00c000010dc000c4000116c400c8000116c800cc00010dcc00d0000114d000d4000114d400d800010dd800dc000116dc00e0000116e000e400010de400e8000114e800ec000114ec00f000010df800fc00010dfc000001011600010401011601001c000f05001202c102c20100040500280000006400280003140006020004bc0010001c0001201c002000012220002c00012430003400012734003800012538003c0001243c004000012240004c000120500054000320242754005800031e222558005c00031d20245c00680001228800940001259400980001249800a0000122a400a8000122a800ac000129ac00b0000129b000b4000127b400c0000125c000c4000124cc00d000022427d000d4000125d400e0000125e000e4000127e400e8000120ec00f0000124f000f400022427f4000001012500010401012404001c00100500640000041e000004000000000000000000000000000a040004120000010401012004010801012008010c01012005001c000f0a006400f4010a00000400000000000000000000000000000000020c00f000f80001270c011801012006001c00010a006400f401640000040000000000000000000000000000000002540000000400011d08000c00011d10001400011d18001c00011d20002400011d28002c00011d30003400011d38003c00011d40004400011d58005c00011d60006400011d68006c00011d70007400011d78007c00011d07001c00020a006400f401640000040000000000000000000000000000000003600080008400011d88008c00011d90009400011d98009c00011da000a400011da800ac00011db000b400011db800bc00011dc000c400011dc800cc00011dd000d400011dd800dc00011de000e400011de800ec00011df000f400011df800fc00011d`), music.PlaybackMode.LoopingInBackground)
+    mySprite4 = sprites.create(img`
+        ........................
+        ...........ff..........8
+        ..........f88f........86
+        .........ff88ff......886
+        .........f8888f......866
+        ........f888888f....8666
+        ......ff88888888ff886666
+        .....f888888888888666666
+        .....ff88888888888866666
+        .....f888888888888666666
+        ....f88ff88888ff86688666
+        ....ffff88fff88f88886688
+        .....f8f8ff8ff8f88686886
+        ....f88fff88ffff86688866
+        ....f8ffff8fffff86888868
+        ....fff88ffffff888866888
+        ....f888ffff8fff86668888
+        ...f888ff8f88f8866688686
+        ..f8888888888f8666666666
+        .f88f8888888886686666666
+        .fff88888888888866666666
+        .ff888888888888666666666
+        ..ff88f888f88f8866866686
+        ..f8ff88fff88f8688668886
+        .f88ff8ff8f8f86688688686
+        f88ff8ff88ff866886886688
+        ffff88f88fff888866866888
+        .ffffffffffff88888888888
+        .ff888ff88ff888666886688
+        .f888ff888ff886668866688
+        f888888888f8866666666686
+        fff888f88888888666866666
+        ..ffff88f888888888668666
+        .....f8ff88f888ff8688668
+        ......fff8fff88fff888688
+        .........ffeeff......88e
+        .........feeeef......fee
+        .........feeeef......fee
+        ........feeefeef....feee
+        ........fefeffef....fefe
+        `, SpriteKind.teleporter6)
+    mySprite4.setPosition(152, 57)
     scene.setBackgroundImage(img`
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
@@ -963,8 +1224,11 @@ let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite12: Sprite = null
 let mySprite9: Sprite = null
+let mySprite16: Sprite = null
+let mySprite15: Sprite = null
 let projectile: Sprite = null
 let mySprite13: Sprite = null
+let mySprite4: Sprite = null
 let mySprite14: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
