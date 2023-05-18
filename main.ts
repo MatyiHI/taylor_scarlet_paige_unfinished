@@ -15,7 +15,32 @@ namespace SpriteKind {
     export const statuedecoration = SpriteKind.create()
     export const mysteriousobject = SpriteKind.create()
     export const dteleport = SpriteKind.create()
+    export const dteleport2 = SpriteKind.create()
+    export const well = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.dteleport, function (sprite, otherSprite) {
+    mySprite18 = sprites.create(img`
+        . . . . . . . . b b b b b . . . 
+        . . . . . . b b d d d d b b . . 
+        . . . . . b d d d d d d d c . . 
+        . . . . c d d d d d d d d c . . 
+        . . . c b d d d d d d d b c c . 
+        . . . c b b d d d d b c c c c . 
+        . . c c d b b b c c c c c c c . 
+        . . c c c d d d d c c d d d c c 
+        . c d b c c b b c c d d d d d c 
+        . c b d d b b b c c d d d d d c 
+        . c c b b b b c b c b d d d b c 
+        c b b c c c c c b b b b b c c c 
+        c c b b c c c c c d d d d d b c 
+        c c c c c c b b b b b c c c c c 
+        c c c c c c c b b b b b c c c c 
+        c c c c c c c c b b b b b c c c 
+        `, SpriteKind.dteleport2)
+    mySprite18.setPosition(149, 79)
+    mySprite.setPosition(8, 64)
+    sprites.destroy(mySprite17)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSprite) {
     game.showLongText("?: Ah!!!! Thereʻs actually someone in this town again??", DialogLayout.Bottom)
     game.showLongText("?: I didnʻt know... That there were still others alive...", DialogLayout.Bottom)
@@ -566,6 +591,55 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
     500,
     true
     )
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.dteleport2, function (sprite, otherSprite) {
+    mySprite.setPosition(8, 64)
+    sprites.destroy(mySprite18)
+    mySprite19 = sprites.create(img`
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ......ccccccccccccccccc.........
+        ....cccccffffffffffffcccc.......
+        ...ccbbccccfffffffffcccbccc.....
+        ...cbbbcbbbccccccccbbbbbbbcc....
+        ..ccccccbbbbbbcbbbbbbbbbbbbc....
+        ..cbbccbbbbbbbcbbbbbbbbbcccc....
+        ..cbbbcccccbbbcbbbbbbbcccbbc....
+        ..ccbbbbbccccccbbbccccbbbbbc....
+        ...cbbbbbcbbbbcccccbbcbbbbc.....
+        ...cbbbbbcbbbbbbbbbbbcbbbbc.....
+        ...cbbbbbcbbbbbbbbbbbcbbbcc.....
+        ...ccccbbcbbbbbbbbbbbcbcccc.....
+        ...cbbbcccccccccccccccccbcc.....
+        ...ccbbbbbbbbbbbbbbbbbbbcc......
+        ....ccccccccccccccccccccc.......
+        `, SpriteKind.well)
+    mySprite19.setPosition(78, 72)
+    game.showLongText("?: STOP!!", DialogLayout.Bottom)
+    game.showLongText("...?", DialogLayout.Bottom)
+    game.showLongText("?: Do you see that well?", DialogLayout.Bottom)
+    game.showLongText("Yes, why?", DialogLayout.Bottom)
+    game.showLongText("?: Jump down it.", DialogLayout.Bottom)
+    game.showLongText("Excuse me...?", DialogLayout.Bottom)
+    game.showLongText("?: Just trust me, okay ?!!", DialogLayout.Bottom)
+    game.showLongText("No, itʻs just that... I donʻt think Iʻll fit in that tiny well.", DialogLayout.Bottom)
+    game.showLongText("?: Oh.. just try!!", DialogLayout.Bottom)
+    game.showLongText("Well, okay then.", DialogLayout.Bottom)
 })
 statusbars.onZero(StatusBarKind.Health, function (status) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
@@ -1377,14 +1451,16 @@ let mySprite10: Sprite = null
 let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite12: Sprite = null
+let mySprite19: Sprite = null
 let mySprite9: Sprite = null
-let mySprite17: Sprite = null
 let mySprite16: Sprite = null
 let mySprite15: Sprite = null
 let projectile: Sprite = null
 let mySprite13: Sprite = null
 let mySprite4: Sprite = null
 let mySprite14: Sprite = null
+let mySprite17: Sprite = null
+let mySprite18: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`Dark_woods`)
